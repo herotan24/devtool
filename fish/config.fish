@@ -6,6 +6,10 @@
 # Some things should only be done for login terminals
 #
 
+if test -f /usr/share/terminfo/g/gnome-256color
+	export TERM=gnome-256color
+end
+
 if status --is-login
 
 	#

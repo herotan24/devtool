@@ -41,3 +41,15 @@ if status --is-login
 	end
 end
 
+function fish_prompt
+	printf '%s@%s ' (whoami) (hostname|cut -d . -f 1)
+	printf '%s%s%s ' (set_color $fish_color_cwd) (prompt_pwd) (set_color normal) 
+	if test -d .git
+		set_color red
+		printf '-> '
+		set_color yellow
+		printf '%s ' (git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1]/')
+		set_color normal
+	end
+	printf '> '
+end

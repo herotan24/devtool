@@ -1,13 +1,14 @@
 #!/bin/bash
 
-CONFIG_SYS=/etc/tmux.conf
-CONFIG_TAR=`pwd`/tmux.conf
+mkdir -p ${HOME}/.config
+TARGET_DIR=~/.config/tmux
+SOURCE_DIR=$(cd `dirname $0`; pwd)
 
-if [ -f $CONFIG_SYS ] || [ -L $CONFIG_SYS ];
+if [ -d $TARGET_DIR ] || [ -L $TARGET_DIR ];
 then
-	echo 'backing up original config' $CONFIG_SYS
-	mv $CONFIG_SYS $CONFIG_SYS.$$$$.bckp
+	echo 'backing up original config' $TARGET_DIR
+	mv $TARGET_DIR $TARGET_DIR.$$$$.bckp
 fi
 
-echo 'creating new config link' $CONFIG_SYS '->' $CONFIG_TAR 
-ln -s $CONFIG_TAR $CONFIG_SYS
+echo 'creating new config link' $TARGET_DIR '->' $SOURCE_DIR 
+ln -s $SOURCE_DIR $TARGET_DIR

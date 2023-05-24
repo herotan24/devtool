@@ -1,13 +1,14 @@
 #!/bin/bash
 
-FISHCONFIG_SYS=/etc/fish/config.fish
-FISHCONFIG_TAR=`pwd`/config.fish
+mkdir -p ${HOME}/.config
+TARGET_DIR=~/.config/fish
+SOURCE_DIR=$(cd `dirname $0`; pwd)
 
-if [ -f $FISHCONFIG_SYS ] || [ -L $FISHCONFIG_SYS ];
+if [ -d $TARGET_DIR ] || [ -L $TARGET_DIR ];
 then
-	echo 'backing up original config' $FISHCONFIG_SYS
-	mv $FISHCONFIG_SYS $FISHCONFIG_SYS.$$$$.bckp
+	echo 'backing up original config' $TARGET_DIR
+	mv $TARGET_DIR $TARGET_DIR.$$$$.bckp
 fi
 
-echo 'creating new config link' $FISHCONFIG_SYS '->' $FISHCONFIG_TAR 
-ln -s $FISHCONFIG_TAR $FISHCONFIG_SYS
+echo 'creating new config link' $TARGET_DIR '->' $SOURCE_DIR 
+ln -s $SOURCE_DIR $TARGET_DIR

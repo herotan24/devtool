@@ -2,4 +2,4 @@
 
 apps=(git tig tmux fish vim tree)
 
-apt install ${apps[@]}
+apt install -y ${apps[@]}

@@ -1,11 +1,12 @@
 #!/bin/bash
+set -e
 
 INSTALL_DIR_ROOT=${HOME}/.config
 mkdir -p ${INSTALL_DIR_ROOT}
 INSTALL_DIR=${INSTALL_DIR_ROOT}/tmux
 SOURCE_DIR=`pwd`
 
-if [ -f $INSTALL_DIR ] || [ -L $INSTALL_DIR ];
+if [ -f $INSTALL_DIR ] || [ -L $INSTALL_DIR ] || [ -d $INSTALL_DIR ];
 then
 	echo 'backing up original config' $INSTALL_DIR
 	mv $INSTALL_DIR $INSTALL_DIR.$$$$.bckp

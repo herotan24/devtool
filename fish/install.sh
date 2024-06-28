@@ -1,10 +1,10 @@
 #!/bin/bash
 
 mkdir -p ${HOME}/.config
-FISHCONFIG_SYS=${HOME}/.config/fish/config.fish
-FISHCONFIG_TAR=`pwd`/config.fish
+FISHCONFIG_SYS=${HOME}/.config/fish
+FISHCONFIG_TAR=`pwd`
 
-if [ -f $FISHCONFIG_SYS ] || [ -L $FISHCONFIG_SYS ];
+if [ -f $FISHCONFIG_SYS ] || [ -L $FISHCONFIG_SYS ] || [ -d $FISHCONFIG_SYS ];
 then
 	echo 'backing up original config' $FISHCONFIG_SYS
 	mv $FISHCONFIG_SYS $FISHCONFIG_SYS.$$$$.bckp

@@ -4,13 +4,7 @@ After=network.target
 
 [Service]
 User=<USERNAME>
-ExecStart=/usr/bin/ssh -fN \
-          -R YY0:localhost:ZZ0 \
-          -R YY1:localhost:ZZ1 \
-          -R YY2:localhost:ZZ2 \
-          -o ServerAliveInterval=30 \
-          -o ServerAliveCountMax=1 \
-          <用户名>@<B的IP地址>
+ExecStart=/bin/sh -c '/usr/bin/ssh -N -R YY0:localhost:ZZ0 -R YY1:localother_serv:ZZy -o ServerAliveInterval=30 -o ServerAliveCountMax=1 用户名字@服务器B-IP'
 TimeoutStopSec=5
 KillSignal=SIGTERM
 Restart=always

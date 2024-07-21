@@ -1,5 +1,5 @@
 #!/bin/sh
-set -xe
+set -x
 
 # 参数
 B_USERNAME=XXXX

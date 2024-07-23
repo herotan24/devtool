@@ -50,7 +50,7 @@ while [ 1 == 1 ]; do
 	kill_process_on_port 25900
     date
     ssh \
-        -o ServerAliveInterval=30 -o ServerAliveCountMax=1 \
+        -o ConnectTimeout=30 -o ServerAliveInterval=30 -o ServerAliveCountMax=1 \
         ${FWD0} \
         ${FWD1} \
         ${FWD2} \

@@ -9,7 +9,7 @@
 set -euo pipefail
 
 # 不同操作系统上，名字相同的软件包
-common_apps=(git tig tmux fish vim tree cmake nodejs)
+common_apps=(git tig tmux fish vim tree cmake nodejs pyenv make coreutils)
 
 # 不同操作系统上，名字“不”相同的软件包
 macos_apps=(python go)
